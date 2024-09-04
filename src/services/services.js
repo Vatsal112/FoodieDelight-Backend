@@ -3,6 +3,13 @@ const MenuItem = require("../models/menuItemModel");
 
 const addRestaurantService = async (params) => {
   try {
+    const isExist = await Restaurant.findOne({ name: params.name });
+    if (isExist) {
+      return {
+        status: 400,
+        message: "Restaurant with the same name already exist already exists",
+      };
+    }
     const data = new Restaurant(params);
     const res = await data.save();
     return {
