@@ -23,4 +23,8 @@ router.get("/menus", getAllMenusController);
 router.put("/menu/:id", updateSingleMenuController);
 router.delete("/menu/:id", deleteSingleMenuController);
 
+router.get("/health", (req, res) => {
+  return res.status(200).json({ message: "OK" });
+});
+
 module.exports = router;

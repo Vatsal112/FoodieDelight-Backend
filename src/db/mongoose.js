@@ -4,6 +4,7 @@ const MenuItem = require("../models/menuItemModel");
 const config = require("../config/config");
 mongoose.connect(config.MONGODB_URL, {
   autoIndex: true,
+  dbName: config.DATABASE_NAME,
 });
 
 // Create a new restaurant

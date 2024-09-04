@@ -8,6 +8,7 @@ const config = {
   APP_NAME: process.env.APP_NAME || "Foodie Delight",
   SERVICE_PORT: process.env.SERVICE_PORT || "4000",
   MONGODB_URL: process.env.MONGODB_URL,
+  DATABASE_NAME: process.env.DATABASE_NAME,
 };
 
 module.exports = config;
