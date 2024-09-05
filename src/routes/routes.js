@@ -19,7 +19,7 @@ router.put("/restaurant/:id", updateSingleRestaurantController);
 router.delete("/restaurant/:id", deleteSingleRestaurantController);
 
 router.post("/menu", addMenuController);
-router.get("/menus", getAllMenusController);
+router.get("/menu/:restaurantId", getAllMenusController);
 router.put("/menu/:id", updateSingleMenuController);
 router.delete("/menu/:id", deleteSingleMenuController);
 

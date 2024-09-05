@@ -145,15 +145,15 @@ const addMenuService = async (params) => {
   }
 };
 
-const getAllMenusService = async (params) => {
+const getAllMenusService = async (restaurantId) => {
   try {
-    if ([null, undefined, ""].includes(params?._id)) {
+    if ([null, undefined, ""].includes(restaurantId)) {
       return {
         status: 400,
         message: "Please provide a restaurant id",
       };
     }
-    const data = await MenuItem.find({ restaurantId: params._id });
+    const data = await MenuItem.find({ restaurantId: restaurantId });
     if (data.length === 0) {
       return {
         status: 400,

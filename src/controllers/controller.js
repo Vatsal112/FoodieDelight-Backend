@@ -41,7 +41,7 @@ const addMenuController = async (req, res, next) => {
 };
 
 const getAllMenusController = async (req, res, next) => {
-  const response = await getAllMenusService(req.body);
+  const response = await getAllMenusService(req.params.restaurantId);
   return res.status(response?.status).send(response);
 };
 
