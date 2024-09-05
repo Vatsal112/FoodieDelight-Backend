@@ -29,7 +29,7 @@ const getRestaurantsService = async () => {
     const data = await Restaurant.find({ isActive: true });
     if (!data) {
       return {
-        status: 400,
+        status: 200,
         message: "No data found",
       };
     }
@@ -107,6 +107,7 @@ const deleteSingleRestaurantService = async (id) => {
         message: "Restaurant not found",
       };
     }
+    const temp = await MenuItem.deleteMany({ restaurantId: id });
     const data = await Restaurant.deleteOne(param);
     if (data.deletedCount === 1) {
       return {
@@ -156,7 +157,7 @@ const getAllMenusService = async (restaurantId) => {
     const data = await MenuItem.find({ restaurantId: restaurantId });
     if (data.length === 0) {
       return {
-        status: 400,
+        status: 200,
         message: "No data found",
       };
     }
