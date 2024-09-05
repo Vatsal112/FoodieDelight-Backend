@@ -68,13 +68,6 @@ const getSingleRestaurantService = async (id) => {
 
 const updateSingleRestaurantService = async (id, params) => {
   try {
-    const isExist = await Restaurant.findOne({ name: params.name });
-    if (isExist) {
-      return {
-        status: 400,
-        message: "Restaurant with the same name already exist already exists",
-      };
-    }
     const data = await Restaurant.findOneAndUpdate({ _id: id }, params, {
       new: true,
     });
@@ -175,13 +168,6 @@ const getAllMenusService = async (restaurantId) => {
 
 const updateSingleMenuService = async (id, params) => {
   try {
-    const isExist = await MenuItem.findOne({ name: params.name });
-    if (isExist) {
-      return {
-        status: 400,
-        message: "MenuItem with the same name already exist",
-      };
-    }
     const data = await MenuItem.findOneAndUpdate({ _id: id }, params, {
       new: true,
     });
